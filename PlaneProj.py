@@ -49,8 +49,8 @@ while 1:
         angles[i] = angle
     
     fps = pose.getFps()
-    cv2.putText(img, f"Left Angle: {angles[1]}", (10, 140), cv2.FONT_HERSHEY_PLAIN, 5, (0, 0, 255), 3)
-    cv2.putText(img, f"Right Angle: {angles[0]}", (10, 210), cv2.FONT_HERSHEY_PLAIN, 5, (0, 0, 255), 3)
+    cv2.putText(img, f"Left Angle: {angles[1]}", (10, 140), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+    cv2.putText(img, f"Right Angle: {angles[0]}", (10, 210), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
     cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 255), 3)
     cv2.imshow("Image", img)
     if cv2.waitKey(1) & 0xFF == ord("q"):

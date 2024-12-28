@@ -1,6 +1,5 @@
 from poseEstimation import poseEstimationModule as pem
 import cv2
-import mediapipe as mp
 import math
 import serial
 import time
@@ -62,10 +61,9 @@ def process_frame():
             angle = getAngles(distances[0], distances[1], distances[2])
             angles[i] = angle
         
-        fps = pose.getFps()
         cv2.putText(img, f"Left Angle: {angles[1]}", (10, 140), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
         cv2.putText(img, f"Right Angle: {angles[0]}", (10, 210), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
-        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 255), 3)
+        cv2.putText(img, str(int(pose.getFps())), (10, 70), cv2.FONT_HERSHEY_PLAIN, 5, (255, 0, 255), 3)
         cv2.imshow("Image", img)
         
         if cv2.waitKey(1) & 0xFF == ord("q"):
@@ -75,7 +73,7 @@ def send_to_arduino():
     while True:
         val = writeToArduino(angles[0])
         print(val)
-        time.sleep(0.1)  # Reduce the frequency of sending data to Arduino
+        time.sleep(0.1)  # slow down sending so the program isnt slow
 
 # uhhhh it runs at 5 fps without threading
 frame_thread = threading.Thread(target=process_frame)

@@ -35,7 +35,7 @@ def getAngles(a, b, c) -> int:
     return clamp(round(math.degrees(math.acos((a**2 + c**2 - b**2) / (2 * a * c)))), 0, 180)
 
 # method for thread
-def process_frame():
+def processFrame():
     global angles
     while True:
         ret, img = cap.read()
@@ -69,21 +69,21 @@ def process_frame():
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
 
-def send_to_arduino():
+def sendToArduino():
     while True:
         val = writeToArduino(angles[0])
         print(val)
         time.sleep(0.1)  # slow down sending so the program isnt slow
 
 # uhhhh it runs at 5 fps without threading
-frame_thread = threading.Thread(target=process_frame)
-frame_thread.start()
+frameThread = threading.Thread(target=processFrame)
+frameThread.start()
 
-arduino_thread = threading.Thread(target=send_to_arduino)
-arduino_thread.start()
+arduinoThread = threading.Thread(target=sendToArduino)
+arduinoThread.start()
 
-frame_thread.join()
-arduino_thread.join()
+frameThread.join()
+arduinoThread.join()
 
 cap.release()
 cv2.destroyAllWindows()

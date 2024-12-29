@@ -5,7 +5,7 @@ import serial
 import time
 import threading
 
-arduino = serial.Serial(port='COM3', baudrate=115200, timeout=0.1)
+arduino = serial.Serial(port='COM4', baudrate=115200, timeout=0.1)
 cap = cv2.VideoCapture(0)
 pose = pem.poseDetector()
 
@@ -71,9 +71,11 @@ def processFrame():
 
 def sendToArduino():
     while True:
-        val = writeToArduino(angles[0])
-        print(val)
-        time.sleep(0.1)  # slow down sending so the program isnt slow
+        # loop to send both over
+        for angle in angles:
+            val = writeToArduino(angle)
+            print(val)
+            time.sleep(0.1)  # slow down sending so the program isnt slow
 
 # uhhhh it runs at 5 fps without threading
 frameThread = threading.Thread(target=processFrame)

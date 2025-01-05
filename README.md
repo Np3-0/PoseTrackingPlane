@@ -31,4 +31,4 @@
 
 
 ---
-Made by Np3-0. with the MIT license
+Made by Np3-0

@@ -16,10 +16,7 @@
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Search for Servo. Install if not installed
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**For Python**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Go to a terminal (integrated with your IDE or `CMD` that is in the directory of the project
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Type these commands:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pip install opencv-python`
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pip install mediapipe`
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pip install pyserial`
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Enter this command: `pip install opencv-python mediapipe pyserial`
 
 5. Set up Arduino:
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For each servo, Plug in the **BROWN** wire to `GND`, the **RED** to `5V`, and the **ORANGE** to `PIN 3 + 4` (Right arm) and `PIN 5 + 6` (Left arm)

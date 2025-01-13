@@ -3,7 +3,7 @@
 
 ## Requirements:
 * Arduino
-* Servo Motor (This README will state information relating to [this](https://www.amazon.com/Micro-Helicopter-Airplane-Remote-Control/dp/B072V529YD) model)
+* 4 Servo Motors (This README will state information relating to [this](https://www.amazon.com/Micro-Helicopter-Airplane-Remote-Control/dp/B072V529YD) model)
 * Webcam (connected to PC) 
 
 ## Setup
@@ -22,7 +22,7 @@
 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`pip install pyserial`
 
 5. Set up Arduino:
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For each servo, Plug in the **BROWN** wire to `GND`, the **RED** to `5V`, and the **ORANGE** to `PIN 3` (Right arm) and `PIN 4` (Left arm)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For each servo, Plug in the **BROWN** wire to `GND`, the **RED** to `5V`, and the **ORANGE** to `PIN 3 + 4` (Right arm) and `PIN 5 + 6` (Left arm)
 
 6. Plug in Arduino
 7. Click **Verify**, then **Upload** in the Arduino IDE
@@ -31,4 +31,4 @@
 
 
 ---
-Made by Np3-0. with the MIT license
+Made by Np3-0

@@ -1,6 +1,6 @@
-from poseEstimation import poseEstimationModule as pem
-import mathFuncs as mf
 import cv2
+import mathFuncs as mf
+from poseEstimation import poseEstimationModule as pem
 import serial
 import time
 import threading

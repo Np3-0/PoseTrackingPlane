@@ -32,19 +32,19 @@ def processFrame():
         if not poseLms:
             continue
         
-        for i in range(2):  
-            midpoint = mf.getMidPoint(poseLms[points[i][0]], poseLms[points[i][2]])
+        for id, runPoints in enumerate(points):      
+            midpoint = mf.getMidPoint(poseLms[runPoints[0]], poseLms[runPoints[2]])
         
             # Draw the midpoint and the third line to make it easier to visualize
             cv2.circle(img, (midpoint[0], midpoint[1]), 5, (0, 0, 255), 3)
-            cv2.line(img, (poseLms[points[i][1]][1], poseLms[points[i][1]][2]), (midpoint[0], midpoint[1]), (0, 0, 255), 5)
+            cv2.line(img, (poseLms[runPoints[1]][1], poseLms[runPoints[1]][2]), (midpoint[0], midpoint[1]), (0, 0, 255), 5)
         
             # Get the lengths of each line
-            distances = mf.getDistances([poseLms[points[i][0]][1], poseLms[points[i][0]][2]], [poseLms[points[i][1]][1], poseLms[points[i][1]][2]], [midpoint[0], midpoint[1]])
+            distances = mf.getDistances([poseLms[runPoints[0]][1], poseLms[runPoints[0]][2]], [poseLms[runPoints[1]][1], poseLms[runPoints[1]][2]], [midpoint[0], midpoint[1]])
         
             # Get the angle in degrees of the armpit (line a and c)
             angle = mf.getAngles(distances[0], distances[1], distances[2])
-            angles[i] = angle
+            angles[id] = angle
         
         cv2.putText(img, f"Left Angle: {angles[1]}", (10, 140), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
         cv2.putText(img, f"Right Angle: {angles[0]}", (10, 210), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
